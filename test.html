@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>COLOR THEMES FOR GOOGLE CODE PRETTIFY</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="COLOR THEMES FOR GOOGLE CODE PRETTIFY">
+	<meta name="keywords" content="HTML, CSS, JS, JavaScript, ">
+	<meta name="author" content="李顺平">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="test.css" type="text/css" />
+	<script type="text/javascript" language="javascript" src="prettify.js"></script>
+	<style>
+	</style>
+</head>
+<body>
+<h2>高亮代码主题展示</h2>
+<div id="vibrant-ink" class="vibrant-ink theme__preview"><pre class="prettyprint linenums lang-html"><code>&lt;script type="text/javascript"&gt;
+// Say hello world until the user starts questioning
+// the meaningfulness of their existence.
+function helloWorld(world) {
+  for (var i = 42; --i >= 0;) {
+    alert('Hello ' + String(world));
+  }
+}
+&lt;/script&gt;
+&lt;style&gt;
+p { color: pink }
+b { color: blue }
+u { color: "umber" }
+&lt;/style&gt;</code></pre></div>
+<h2>使用方法</h2>
+<ol>
+	<li>
+		页面结构：使用&lt;pre class="prettyprint"&gt;&lt;code&gt;//your code&lt;/code&gt;&lt;/pre&gt;嵌套代码块，使用&lt;div class="container-theme theme__preview"&gt;&lt;/div&gt;嵌套上述dom结构
+	</li>
+	<li>
+		使用sass重构主题样式：a.通过官网或者prettify-demo.css找到主题样式（注意去掉#vibrant-ink之类的id选择器）；b.使用.container-theme.theme__preview或#container-theme选择器嵌套主题样式（可个性化修改选择器名称，之所以使用这样的选择器，是为了提高样式优先级）；c.编译获取css
+	</li>
+	<li>
+		逻辑：在dom和css加载完成后调用prettyPrint();即可
+	</li>
+	<li>
+		更加定制化的需求：建议使用sass重构主题css，使用两个并列类选择器的方式决定主题，将生成的主题css文件导出，页面应用时只需要为代码容器添加这样的class，然后调用prettyPrint方法即可
+	</li>
+</ol>
+<h5>
+	源自：<a href="http://jmblog.github.io/color-themes-for-google-code-prettify/">Google Code Prettify official theme gallery</a>
+</h5>
+<script type="text/javascript" language="javascript">
+	prettyPrint();
+</script>
+</body>
+</html>
